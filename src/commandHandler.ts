@@ -59,7 +59,7 @@ export class CommandHandler {
     const commandName = args.shift();
     const commandArgs = args;
 
-    const command = Array.from(this.commands).find(c => c.commandName === commandName);
+    const command = Array.from(this.commands).find(c => c.cmdName === commandName || c.cmdAliases.includes(commandName));   
     if (!command) return;
 
     command.execute(this.bot, roomId, event, commandArgs).then((err) => console.log("Something went wrong:", err));

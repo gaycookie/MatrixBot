@@ -1,7 +1,8 @@
 import { Command } from "../command";
 
 const command: Command = {
-  commandName: "ping",
+  cmdName: "ping",
+  cmdAliases: [],
   async execute(bot, roomId, event, args) {
     return new Promise((resolve, reject) => {
       bot.client.sendMessage(roomId, {
