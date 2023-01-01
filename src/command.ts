@@ -1,7 +1,7 @@
 import { MessageEvent, MessageEventContent } from "matrix-bot-sdk";
 import { MatrixBot } from ".";
 
-export interface Command {
+export interface ICommand {
   cmdName: string;
   cmdAliases: string[];
   execute(

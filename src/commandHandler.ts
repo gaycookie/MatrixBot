@@ -2,13 +2,13 @@ import fs from "fs";
 import path from "path";
 import { MessageEvent, MessageEventContent } from "matrix-bot-sdk";
 import { MatrixBot } from ".";
-import { Command } from "./command";
+import { ICommand } from "./command";
 
 export class CommandHandler {
   private bot: MatrixBot; 
   private botUserId: string;
   private botDisplayName: string;
-  private commands: Set<Command> = new Set();
+  private commands: Set<ICommand> = new Set();
   private prefixes: string[];
 
   constructor(bot: MatrixBot) {
@@ -36,7 +36,7 @@ export class CommandHandler {
       if (err) throw(err);
 
       for (const file of files.filter(file => file.endsWith('.js'))) {
-        const command: Command = require(path.join(__dirname, "cmds", file));
+        const command: ICommand = require(path.join(__dirname, "cmds", file));
         this.commands.add(command);
       }
     });

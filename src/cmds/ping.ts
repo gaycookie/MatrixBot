@@ -1,6 +1,6 @@
-import { Command } from "../command";
+import { ICommand } from "../command";
 
-const command: Command = {
+const command: ICommand = {
   cmdName: "ping",
   cmdAliases: [],
   async execute(bot, roomId, event, args) {
