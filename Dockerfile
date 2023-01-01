@@ -4,4 +4,4 @@ WORKDIR /etc/bot
 COPY . .
 
 RUN npm install
-CMD [ "npm", "develop" ]
+CMD [ "npm", "run", "develop" ]
