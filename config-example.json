@@ -1,8 +1,0 @@
-{
-  "homeServer": "https://matrix.example.org",
-  "accessToken": "syt_",
-  "enableMentionPrefix": true,
-  "commandPrefixes": [
-    "!"
-  ]
-}

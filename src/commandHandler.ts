@@ -9,7 +9,7 @@ export class CommandHandler {
   private botUserId: string;
   private botDisplayName: string;
   private commands: Set<ICommand> = new Set();
-  private prefixes: string[];
+  private prefixes: string[] = [];
 
   constructor(bot: MatrixBot) {
     this.bot = bot;
@@ -21,8 +21,8 @@ export class CommandHandler {
     const profile = await this.bot.client.getUserProfile(this.botUserId);
     if (profile && profile['displayname']) this.botDisplayName = profile['displayname'];
 
-    this.prefixes = this.bot.config.commandPrefixes || [ "!" ];
-    if (this.bot.config.enableMentionPrefix) {
+    this.prefixes.push(this.bot.config.command_prefix);
+    if (this.bot.config.enable_mention_prefix) {
       this.prefixes.push(this.botUserId + ":");
       this.prefixes.push(this.botDisplayName + ":");
     }

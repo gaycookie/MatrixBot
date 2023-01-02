@@ -1,0 +1,21 @@
+# The homeserver the bot account is created on.
+home_server: https://matrix.example.org
+
+# The access token of the bot account.
+# More information on this can be found here: https://matrix.org/docs/guides/client-server-api#login
+access_token: syt_
+
+# Admins have access to special admin commands and overrule regular users.
+# And if "auto_join" is set to true, only admins can invite the bot.
+admins:
+  - "@admin:example.org"
+
+# If true, the bot will automatically join rooms when invited.
+# If false, it will only accept invites sent from the admin(s).
+auto_join: true
+
+# The prefix the bot will listen to.
+command_prefix: "!"
+
+# If true, the bot will also listen to mentions as prefix.
+enable_mention_prefix: true

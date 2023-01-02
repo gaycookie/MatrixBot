@@ -3,4 +3,5 @@ node_modules/
 
 package-lock.json
 storage.json
+config.yaml
 config.json
