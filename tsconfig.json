@@ -1,16 +1,15 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "resolveJsonModule": true,
+    "noImplicitAny": true,
     "esModuleInterop": true,
-    "watch": false,
+    "resolveJsonModule": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2016",
     "lib": [ "es6", "dom" ],
     "types": [ "node" ],
     "typeRoots": [ "node_modules/@types" ],
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "rootDir": "src",
+    "outDir": "build"
   }
 }

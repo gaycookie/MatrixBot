@@ -15,11 +15,17 @@ const command: ICommand = {
       const currentTime = moment();
       const newTime = moment();
 
+      if (!timeParts.length) {
+        await bot.client.replyText(roomId, event, "You forgot to tell me when to remind you!");
+        return;
+      }
+
       for (let i = 0; i < timeParts.length; i++) {
         if (timeParts[i][3] === "s") newTime.add(timeParts[i][2], "seconds");
         if (timeParts[i][3] === "m") newTime.add(timeParts[i][2], "minutes");
         if (timeParts[i][3] === "h") newTime.add(timeParts[i][2], "hours");
         if (timeParts[i][3] === "d") newTime.add(timeParts[i][2], "days");
+        if (timeParts[i][3] === "w") newTime.add(timeParts[i][2], "weeks");
       }
 
       const durationInSeconds = newTime.diff(currentTime, "seconds");

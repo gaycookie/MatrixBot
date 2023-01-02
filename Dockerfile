@@ -1,7 +1,10 @@
 FROM node:16
 
-WORKDIR /etc/bot
-COPY . .
+WORKDIR /data
+COPY package.json .
+COPY build build
+COPY config-example.json config.json
 
-RUN npm install
-CMD [ "npm", "run", "develop" ]
+RUN npm install --production
+
+CMD [ "npm", "run", "start" ]

@@ -33,7 +33,7 @@ export class CommandHandler {
 
   private loadCommands() {
     fs.readdir(path.join(__dirname, "cmds"), (err, files) => {
-      if (err) throw(err);
+      if (err) throw new Error(err.message);
 
       for (const file of files.filter(file => file.endsWith('.js'))) {
         const command: ICommand = require(path.join(__dirname, "cmds", file));
