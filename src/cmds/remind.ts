@@ -3,8 +3,8 @@ import moment from "moment";
 import "moment-duration-format"
 
 const command: ICommand = {
-  cmdName: "remind",
-  cmdAliases: ["notetoself", "rememberme", "reminder"],
+  name: "remind",
+  aliases: ["notetoself", "rememberme", "reminder"],
   async execute(bot, roomId, event, args) {
     return new Promise(async (resolve, reject) => {
       

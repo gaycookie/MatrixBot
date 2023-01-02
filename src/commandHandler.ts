@@ -8,7 +8,7 @@ export class CommandHandler {
   private bot: MatrixBot; 
   private botUserId: string;
   private botDisplayName: string;
-  private commands: Set<ICommand> = new Set();
+  private commands: ICommand[] = [];
   private prefixes: string[] = [];
 
   constructor(bot: MatrixBot) {
@@ -35,9 +35,9 @@ export class CommandHandler {
     fs.readdir(path.join(__dirname, "cmds"), (err, files) => {
       if (err) throw new Error(err.message);
 
-      for (const file of files.filter(file => file.endsWith('.js'))) {
+      for (const file of files.filter(file => file.match(/(.*?)\.(ts|js)$/))) {
         const command: ICommand = require(path.join(__dirname, "cmds", file));
-        this.commands.add(command);
+        this.commands.push(command);
       }
     });
   }
@@ -59,7 +59,7 @@ export class CommandHandler {
     const commandName = args.shift();
     const commandArgs = args;
 
-    const command = Array.from(this.commands).find(c => c.cmdName === commandName || c.cmdAliases.includes(commandName));   
+    const command = this.commands.find(c => c.name === commandName || c.aliases.includes(commandName));
     if (!command) return;
 
     command.execute(this.bot, roomId, event, commandArgs).then((err) => console.log("Something went wrong:", err));

@@ -1,8 +1,8 @@
 build/
 node_modules/
 .vscode/
+storage/
 
 package-lock.json
-storage.json
 config.yaml
 config.json

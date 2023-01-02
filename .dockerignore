@@ -1,10 +1,10 @@
 src/
 .vscode/
+storage/
 
 package-lock.json
 nodemon.json
 tsconfig.json
 
-storage.json
 config.yaml
 config.json
